@@ -1,0 +1,4 @@
+_site/
+node_modules/
+# Ignore all files in the _site directory
+# Ignore all files in the node_modules directory
