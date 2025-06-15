@@ -1,17 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Tester Skills Portfolio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/Dark Mode/dark-skills.css">
-</head> -->
-
-<!-- <body> -->
 <section class="skills-hero">
     <div class="floating-elements">
         <div class="floating-element"></div>
@@ -230,87 +216,88 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    document.addEventListener('DOMContentLoaded', function () {
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.2, // Increased from 0.1 to 0.2 for better reliability
+            rootMargin: '0px 0px -100px 0px' // Increased negative margin for earlier triggering
+        };
 
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, observerOptions);
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
 
-    document.querySelectorAll('.reveal').forEach(el => {
-        observer.observe(el);
-    });
+                    // If this is the stats row, animate counters
+                    if (entry.target.classList.contains('stats-row')) {
+                        animateCounters();
+                    }
 
-    // Counter animation
-    function animateCounters() {
-        const counters = document.querySelectorAll('.stat-number');
-
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-target'));
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
+                    // If this is a skill category, animate progress bars
+                    if (entry.target.classList.contains('skill-category')) {
+                        animateProgressBars();
+                    }
                 }
-                counter.textContent = Math.floor(current);
-            }, 16);
-        });
-    }
+            });
+        }, observerOptions);
 
-    // Trigger counter animation when stats section is visible
-    const statsObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-                statsObserver.unobserve(entry.target);
-            }
+        // Observe all reveal elements
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
         });
-    }, { threshold: 0.5 });
 
-    document.querySelector('.stats-row').addEventListener('transitionend', function () {
-        if (this.classList.contains('active')) {
-            statsObserver.observe(this);
+        // Counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const animationDuration = 2000;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const startTime = performance.now();
+
+                const updateCounter = (currentTime) => {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / animationDuration, 1);
+                    const value = Math.floor(progress * target);
+
+                    counter.textContent = value;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    }
+                };
+
+                requestAnimationFrame(updateCounter);
+            });
         }
-    });
 
-    // Skill progress bar animation
-    function animateProgressBars() {
-        const progressBars = document.querySelectorAll('.skill-progress-bar');
-        progressBars.forEach((bar, index) => {
-            setTimeout(() => {
-                bar.style.width = bar.style.width;
-            }, index * 100);
-        });
-    }
+        // Skill progress bar animation
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.skill-progress-bar');
 
-    // Trigger progress animation after page load
-    window.addEventListener('load', () => {
-        setTimeout(animateProgressBars, 1000);
-    });
+            progressBars.forEach(bar => {
+                // Reset width to 0 to allow animation
+                const targetWidth = bar.style.width;
+                bar.style.width = '0';
 
-    // Add hover effects for skill items
-    document.querySelectorAll('.skill-item').forEach(item => {
-        item.addEventListener('mouseenter', function () {
-            this.style.background = 'rgba(102, 126, 234, 0.1)';
-        });
+                // Force reflow to ensure reset takes effect
+                void bar.offsetWidth;
 
-        item.addEventListener('mouseleave', function () {
-            this.style.background = 'rgba(255, 255, 255, 0.05)';
+                // Animate to target width
+                bar.style.transition = 'width 1s ease-out';
+                bar.style.width = targetWidth;
+            });
+        }
+
+        // Add hover effects for skill items
+        document.querySelectorAll('.skill-item').forEach(item => {
+            item.addEventListener('mouseenter', function () {
+                this.style.background = 'rgba(102, 126, 234, 0.1)';
+            });
+
+            item.addEventListener('mouseleave', function () {
+                this.style.background = 'rgba(255, 255, 255, 0.05)';
+            });
         });
     });
 </script>
-<!-- </body> -->
-
-<!-- </html> -->
