@@ -1,0 +1,220 @@
+<section id="certifications" class="certifications-nexus" aria-labelledby="certifications-heading">
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="container">
+        <header class="section-header text-center">
+            <h2 id="certifications-heading" class="display-5 fw-bold">Professional Credentials</h2>
+            <p class="lead">Industry-recognized certifications that validate my expertise and commitment to excellence
+            </p>
+        </header>
+
+        <div class="certification-grid">
+            <article class="certification-card" data-certification-type="testing" tabindex="0">
+                <div class="credential-badge">Verified</div>
+                <div class="certification-badge">
+                    <i class="fas fa-award" aria-hidden="true"></i>
+                </div>
+                <div class="certification-body">
+                    <h3>ISTQB Foundation Level</h3>
+                    <div class="certification-meta">
+                        <span class="date">
+                            <i class="fas fa-calendar-check"></i>
+                            Certified: June 2024
+                        </span>
+                        <span class="issuer">
+                            <i class="fas fa-building"></i>
+                            International Software Testing Qualifications Board
+                        </span>
+                    </div>
+                    <p class="certification-desc">
+                        Comprehensive foundation in software testing principles, methodologies, and best practices.
+                        Covers test design techniques, test management, and quality assurance fundamentals.
+                    </p>
+                    <a href="#" class="certification-link" aria-label="View ISTQB certification">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="certification-card " data-certification-type="api" tabindex="0">
+                <div class="credential-badge">Verified</div>
+                <div class="certification-badge">
+                    <i class="fas fa-code" aria-hidden="true"></i>
+                </div>
+                <div class="certification-body">
+                    <h3>Postman API Testing Expert</h3>
+                    <div class="certification-meta">
+                        <span class="date">
+                            <i class="fas fa-calendar-check"></i>
+                            Certified: September 2024
+                        </span>
+                        <span class="issuer">
+                            <i class="fas fa-building"></i>
+                            Postman Inc.
+                        </span>
+                    </div>
+                    <p class="certification-desc">
+                        Advanced expertise in REST API testing, automation workflows, and integration testing.
+                        Proficient in creating comprehensive test suites and automated API validation processes.
+                    </p>
+                    <a href="#" class="certification-link" aria-label="View Postman certification">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </article>
+
+            <article class="certification-card " data-certification-type="automation" tabindex="0">
+                <div class="credential-badge">Verified</div>
+                <div class="certification-badge">
+                    <i class="fas fa-robot" aria-hidden="true"></i>
+                </div>
+                <div class="certification-body">
+                    <h3>Selenium Test Automation</h3>
+                    <div class="certification-meta">
+                        <span class="date">
+                            <i class="fas fa-calendar-check"></i>
+                            Certified: March 2024
+                        </span>
+                        <span class="issuer">
+                            <i class="fas fa-building"></i>
+                            Selenium Academy
+                        </span>
+                    </div>
+                    <p class="certification-desc">
+                        Mastery of web UI test automation using Selenium WebDriver, including framework design,
+                        cross-browser testing, and continuous integration implementation.
+                    </p>
+                    <a href="#" class="certification-link" aria-label="View Selenium certification">
+                        <span>Verify Credential</span>
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+
+        <div class="cta-section">
+            <a href="/cert2.html" class="premium-cta-btn" aria-label="View complete certification portfolio">
+                <i class="fas fa-trophy"></i>
+                <span>View Complete Certification Portfolio</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script> -->
+<!-- <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Enhanced card interactions
+    document.querySelectorAll('.certification-card').forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            // Add subtle glow effect
+            this.style.filter = 'brightness(1.1)';
+        });
+
+        card.addEventListener('mouseleave', function () {
+            this.style.filter = 'brightness(1)';
+        });
+
+        // Keyboard navigation support
+        card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const link = this.querySelector('.certification-link');
+                if (link) {
+                    link.click();
+                }
+            }
+        });
+    });
+
+    // Enhanced CTA button interaction
+    const ctaButton = document.querySelector('.premium-cta-btn');
+    ctaButton.addEventListener('mouseenter', function () {
+        this.style.filter = 'brightness(1.1) saturate(1.2)';
+    });
+
+    ctaButton.addEventListener('mouseleave', function () {
+        this.style.filter = 'brightness(1) saturate(1)';
+    });
+
+    // Add click ripple effect
+    document.querySelectorAll('.certification-card, .premium-cta-btn').forEach(element => {
+        element.addEventListener('click', function (e) {
+            const ripple = document.createElement('div');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+
+    // Add CSS for ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+    document.head.appendChild(style);
+
+    // Floating elements animation enhancement
+    document.querySelectorAll('.floating-element').forEach((element, index) => {
+        element.addEventListener('animationiteration', function () {
+            const colors = [
+                'rgba(102, 126, 234, 0.6)',
+                'rgba(240, 147, 251, 0.6)',
+                'rgba(67, 233, 123, 0.6)',
+                'rgba(247, 151, 30, 0.6)'
+            ];
+            this.style.background = colors[Math.floor(Math.random() * colors.length)];
+        });
+    });
+</script> -->
