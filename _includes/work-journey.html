@@ -1,0 +1,161 @@
+<section id="work-journey">
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <div class="container">
+        <div class="journey-header">
+            <h2>Professional Journey</h2>
+            <p class="lead">Key milestones in my career transformation</p>
+            <button class="resume-btn" onclick="downloadResume()">
+                <i class="fas fa-file-pdf"></i> Download Resume
+            </button>
+        </div>
+
+        <div class="timeline">
+            <!-- Current Job - Now using keep-right class -->
+            <article class="job-card current-job keep-right reveal-right">
+                <span class="current-position">Current Role</span>
+                <div class="job-content">
+                    <div class="job-header">
+                        <h3>Software Tester</h3>
+                        <span class="company">Milestone Infosoft Solutions</span>
+                        <span class="duration">2024 - Present</span>
+                    </div>
+                    <ul class="job-achievements">
+                        <li class="achievement-highlight">
+                            Led automation testing for <strong>3 different modules</strong> of ERP, reducing
+                            regression testing time by <strong>65%</strong>
+                        </li>
+                        <li>
+                            Mentored <strong>4 junior engineers</strong>, boosting team productivity by
+                            <strong>40%</strong>
+                        </li>
+                        <li>
+                            Architected <strong>CI/CD pipeline</strong> cutting release cycles from <strong>4 weeks
+                                to 10 days</strong>
+                        </li>
+                        <li>
+                            Implemented <strong>comprehensive test strategy</strong> achieving <strong>99.2% bug
+                                detection rate</strong>
+                        </li>
+                        <li>
+                            Established <strong>quality gates</strong> preventing 95% of production issues
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Previous Job - Now using keep-left class -->
+            <article class="job-card keep-left reveal-left">
+                <div class="job-content">
+                    <div class="job-header">
+                        <h3>Software Engineer</h3>
+                        <span class="company">Ergo Technology & Services</span>
+                        <span class="duration">2022 - 2024</span>
+                    </div>
+                    <ul class="job-achievements">
+                        <li>
+                            Engineered <strong>200+ comprehensive test cases</strong> achieving <strong>98%
+                                coverage</strong>
+                        </li>
+                        <li class="achievement-highlight">
+                            Identified <strong>57 critical defects</strong> pre-launch, saving
+                            <strong>$850K+</strong> in potential losses
+                        </li>
+                        <li>
+                            Streamlined testing processes reducing post-release bugs by <strong>35%</strong>
+                        </li>
+                        <li>
+                            Developed <strong>automated regression suite</strong> cutting testing cycles by
+                            <strong>50%</strong>
+                        </li>
+                        <li>
+                            Collaborated with <strong>cross-functional teams</strong> improving delivery timelines
+                            by <strong>25%</strong>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, index * 200);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all reveal elements
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Resume download function
+    function downloadResume() {
+        // Add your resume download logic here
+        // For demo purposes, this will show an alert
+        alert('Resume download would start here. Replace this with your actual resume file link.');
+
+        // Example of how you might implement it:
+        // const link = document.createElement('a');
+        // link.href = 'path-to-your-resume.pdf';
+        // link.download = 'Your-Name-Resume.pdf';
+        // link.click();
+    }
+
+    // Add smooth scrolling for timeline
+    function smoothReveal() {
+        const cards = document.querySelectorAll('.job-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.3}s`;
+        });
+    }
+
+    // Initialize smooth reveal on page load
+    window.addEventListener('load', smoothReveal);
+
+    // Trigger typing animation when current job card is visible
+    const currentJobObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(animateCurrentPosition, 500);
+                currentJobObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const currentJob = document.querySelector('.current-job');
+    if (currentJob) {
+        currentJobObserver.observe(currentJob);
+    }
+
+    // Add particle interaction
+    document.querySelectorAll('.particle').forEach(particle => {
+        particle.addEventListener('mouseover', function () {
+            this.style.transform = 'scale(2)';
+            this.style.opacity = '1';
+        });
+
+        particle.addEventListener('mouseout', function () {
+            this.style.transform = 'scale(1)';
+            this.style.opacity = '0.7';
+        });
+    });
+</script>
