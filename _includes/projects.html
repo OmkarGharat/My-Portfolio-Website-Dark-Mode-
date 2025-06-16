@@ -1,0 +1,241 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Tester Projects Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/projects.css">
+</head>
+
+<body> -->
+<section class="projects-section">
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="container">
+        <div class="section-header">
+            <h1 class="main-title">ERP & Insurance Testing Projects</h1>
+            <p class="main-subtitle">Comprehensive testing of business workflows in Milestone Lite ERP and Easy
+                Insurance Agent application</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="project-card reveal">
+                    <div class="card-body">
+                        <span class="project-app">Milestone Lite ERP</span>
+                        <h3 class="project-name">PO to AutoGRN Workflow</h3>
+                        <p class="project-desc">
+                            End-to-end testing of Purchase Order to Goods Receipt Note automation, validating
+                            inventory updates, accounting entries, and vendor communication workflows.
+                        </p>
+                        <div>
+                            <span class="tech-badge" data-type="ERP">Inventory Management</span>
+                            <span class="tech-badge" data-type="ERP">AP Module</span>
+                            <span class="tech-badge" data-type="ERP">Data Validation</span>
+                        </div>
+                        <div class="modules-section">
+                            <div class="modules-title">Modules Involved</div>
+                            <div>
+                                <span class="module-item ERP-tag">Accounts Payable</span>
+                                <span class="module-item ERP-tag">Inventory</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="project-card reveal">
+                    <div class="card-body">
+                        <span class="project-app">Milestone Lite ERP</span>
+                        <h3 class="project-name">Dealer SO to PO Conversion</h3>
+                        <p class="project-desc">
+                            Verified automated conversion of dealer sales orders to purchase orders with correct
+                            pricing, quantities, and vendor assignments across multiple business scenarios.
+                        </p>
+                        <div>
+                            <span class="tech-badge" data-type="ERP">Sales Order</span>
+                            <span class="tech-badge" data-type="ERP">Purchase Order</span>
+                            <span class="tech-badge" data-type="ERP">Pricing Logic</span>
+                        </div>
+                        <div class="modules-section">
+                            <div class="modules-title">Modules Involved</div>
+                            <div>
+                                <span class="module-item ERP-tag">Accounts Receivable</span>
+                                <span class="module-item ERP-tag">Accounts Payable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="project-card insurance reveal">
+                    <div class="card-body">
+                        <span class="project-app insurance">Eazy Insurance</span>
+                        <h3 class="project-name">Policy Management System</h3>
+                        <p class="project-desc">
+                            Comprehensive testing of policy creation, renewal, and claims processing workflows in
+                            the Easy Insurance agent application with end-to-end validation.
+                        </p>
+                        <div>
+                            <span class="tech-badge" data-type="Insurance">Policy Creation</span>
+                            <span class="tech-badge" data-type="Insurance">Renewals</span>
+                            <span class="tech-badge" data-type="Insurance">Claims Processing</span>
+                        </div>
+                        <div class="modules-section">
+                            <div class="modules-title">Components Tested</div>
+                            <div>
+                                <span class="module-item Insurance-tag">Policy Engine</span>
+                                <span class="module-item Insurance-tag">Customer Portal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="project-card reveal">
+                    <div class="card-body">
+                        <span class="project-app">Milestone Lite ERP</span>
+                        <h3 class="project-name">WayTrack API to JSON Integration</h3>
+                        <p class="project-desc">
+                            Validated API integration with WayTrack logistics system, ensuring accurate JSON data
+                            transformation and real-time shipment status updates with error handling.
+                        </p>
+                        <div>
+                            <span class="tech-badge" data-type="ERP">API Testing</span>
+                            <span class="tech-badge" data-type="ERP">JSON</span>
+                            <span class="tech-badge" data-type="ERP">Integration</span>
+                        </div>
+                        <div class="modules-section">
+                            <div class="modules-title">Modules Involved</div>
+                            <div>
+                                <span class="module-item ERP-tag">Shipping</span>
+                                <span class="module-item ERP-tag">Integration</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Projects Button -->
+        <div class="btn-container">
+            <a href="/Main Components/all-projects.html" class="view-all-btn">
+                View All Projects <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all reveal elements
+    document.querySelectorAll('.reveal').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Add click animation to View All Projects button
+    document.querySelector('.view-all-btn').addEventListener('click', function (e) {
+        // Create ripple effect
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+
+        ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+            `;
+
+        this.appendChild(ripple);
+
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+
+    // Add CSS for ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+    document.head.appendChild(style);
+
+    // Accessibility improvements
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'article');
+
+        card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+
+    // Progressive enhancement for animations
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.animation = 'none';
+            card.style.opacity = '1';
+            card.style.transform = 'none';
+        });
+    }
+
+    // Performance optimization - lazy load heavy animations
+    const lazyAnimations = () => {
+        const cards = document.querySelectorAll('.project-card');
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.animationPlayState = 'running';
+            }, index * 100);
+        });
+    };
+
+    // Initialize animations after page load
+    window.addEventListener('load', lazyAnimations);
+</script>
+<!-- </body> -->
+
+<!-- </html> -->
