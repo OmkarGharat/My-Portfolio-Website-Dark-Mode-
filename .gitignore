@@ -2,3 +2,9 @@ _site/
 node_modules/
 # Ignore all files in the _site directory
 # Ignore all files in the node_modules directory
+
+test.css
+test.html
+To Do List.html
+mix.html
+# Ignore specific test files
