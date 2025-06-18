@@ -1,0 +1,141 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Software Testing Expert</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="contact-us.css">
+</head>
+
+<body> -->
+<section class="contact-section" id="contact">
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <div class="container">
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">Ready to elevate your software quality? Let's discuss how my testing
+                expertise can drive your project's success.</p>
+        </div>
+
+        <div class="row g-4 align-items-start">
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1200">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="firstName" placeholder="John" required>
+                                    <label for="firstName">First Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+                                    <label for="lastName">Last Name</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email" placeholder="john@company.com" required>
+                            <label for="email">Email Address</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="company" placeholder="Company Name" />
+                            <label for="company">Company (Optional)</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <select class="form-control" id="inquiryType" required>
+                                <option value="">Select Inquiry Type</option>
+                                <option value="full-time">Full-time Position</option>
+                                <option value="contract">Contract Work</option>
+                                <option value="consultation">Testing Consultation</option>
+                                <option value="collaboration">Partnership/Collaboration</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="inquiryType">Inquiry Type</label>
+                        </div>
+
+                        <div class="form-floating">
+                            <textarea class="form-control" id="message" placeholder="Tell me about your project..."
+                                style="height: 120px" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-send">
+                                <i class="fas fa-paper-plane me-2"></i>
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const btn = document.querySelector('.btn-send');
+        const originalText = btn.innerHTML;
+
+        // Show loading state
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+        btn.disabled = true;
+
+        // Simulate form submission
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fas fa-check me-2"></i>Message Sent!';
+            btn.style.background = 'linear-gradient(45deg, #4caf50, #45a049)';
+
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4)';
+                btn.disabled = false;
+                this.reset();
+            }, 2000);
+        }, 2000);
+    });
+
+    // Add typing effect to form labels
+    const formInputs = document.querySelectorAll('.form-control');
+    formInputs.forEach(input => {
+        input.addEventListener('focus', function () {
+            this.parentElement.style.transform = 'scale(1.02)';
+            // this.style.paddingTop = '3.2rem';
+            // this.style.paddingBottom = '1.5rem';
+            // this.style.paddingLeft = '1.5rem';
+        });
+
+        input.addEventListener('blur', function () {
+            this.parentElement.style.transform = 'scale(1)';
+        });
+    });
+</script>
+<!-- </body>
+
+</html> -->
