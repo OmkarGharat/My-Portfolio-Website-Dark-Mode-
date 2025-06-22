@@ -46,7 +46,7 @@ body {
     z-index: 2;
 }
 
-.main-title {
+/* .main-title {
     font-size: 3.5rem;
     font-weight: 700;
     background: var(--primary-gradient);
@@ -64,7 +64,7 @@ body {
     max-width: 600px;
     margin: 0 auto 2rem;
     animation: fadeInUp 1s ease-out 0.2s both;
-}
+} */
 
 .section-divider {
     width: 80px;
@@ -404,7 +404,7 @@ body {
     background: var(--insurance-gradient);
 } */
 
-@keyframes fadeInUp {
+/* @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -414,7 +414,7 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */
 
 @keyframes slideInUp {
     from {
