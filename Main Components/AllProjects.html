@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Testing Projects - Software Tester Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --erp-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --insurance-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --dark-bg: #0f0f23;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #b8c2cc;
+            --glow-color: rgba(102, 126, 234, 0.4);
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .projects-hero {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d2d5f 100%);
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23667eea" stop-opacity="0.1"/><stop offset="100%" stop-color="%23667eea" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat center center;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            color: var(--text-primary);
+            transform: translateX(-5px);
+        }
+
+        .back-btn i {
+            font-size: 1.2rem;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .main-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .section-divider {
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        /* Filter Section */
+        .filter-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .filter-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            transition: left 0.3s ease;
+            opacity: 0;
+        }
+
+        .filter-btn:hover::before,
+        .filter-btn.active::before {
+            left: 0;
+            opacity: 1;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--text-primary);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .filter-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .filter-btn.erp:hover::before,
+        .filter-btn.erp.active::before {
+            background: var(--erp-gradient);
+        }
+
+        .filter-btn.insurance:hover::before,
+        .filter-btn.insurance.active::before {
+            background: var(--insurance-gradient);
+        }
+
+        /* Project Counter */
+        .project-counter {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .project-card.insurance:hover {
+            box-shadow: 0 25px 50px rgba(240, 147, 251, 0.2);
+            border-color: rgba(240, 147, 251, 0.3);
+        }
+
+        .card-body {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-app {
+            display: inline-block;
+            background: var(--erp-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-app.insurance {
+            background: var(--insurance-gradient);
+        }
+
+        .project-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.15);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge[data-type="Insurance"] {
+            background: rgba(240, 147, 251, 0.15);
+            border-color: rgba(240, 147, 251, 0.3);
+            color: #f093fb;
+        }
+
+        .tech-badge:hover {
+            transform: scale(1.05);
+            background: rgba(102, 126, 234, 0.25);
+        }
+
+        .tech-badge[data-type="Insurance"]:hover {
+            background: rgba(240, 147, 251, 0.25);
+        }
+
+        .modules-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .modules-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .module-item {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .module-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--glow-color);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 85%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Filter Animations */
+        .project-item {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .project-item.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+            }
+
+            .filter-container {
+                padding: 1.5rem;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+            }
+
+            .project-name {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .main-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading State */
+        .loading {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+
+        <div class="container">
+            <a href="/index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+
+            <div class="text-center">
+                <h1 class="main-title">All Testing Projects</h1>
+                <p class="main-subtitle">Complete collection of my ERP and insurance application testing projects</p>
+                <div class="section-divider"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Filter Controls -->
+            <div class="filter-container reveal">
+                <h5 class="filter-title"><i class="fas fa-filter me-2"></i>Filter Projects:</h5>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <span>All Projects</span>
+                    </button>
+                    <button class="filter-btn erp" data-filter="ERP">
+                        <span>ERP Projects</span>
+                    </button>
+                    <button class="filter-btn insurance" data-filter="Insurance">
+                        <span>Insurance Projects</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="project-counter reveal">
+                <i class="fas fa-project-diagram me-2"></i>
+                <span id="counter-text">Showing 8 projects</span>
+            </div>
+
+            <div class="row" id="projects-container">
+                <!-- ERP Projects -->
+                <div class="col-lg-6 mb-4 project-item reveal" data-category="ERP">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="project-app">Milestone Lite ERP</span>
+                            <h3 class="project-name">PO to AutoGRN Workflow</h3>
+                            <p class="project-desc">
+                                End-to-end testing of purchase order to goods receipt automation, validating inventory
+                                updates, accounting entries, and vendor communication.
+                            </p>
+                            <div>
+                                <span class="tech-badge" data-type="ERP">Inventory Management</span>
+                                <span class="tech-badge" data-type="ERP">AP Module</span>
+                                <span class="tech-badge" data-type="ERP">Data Validation</span>
+                            </div>
+                            <div class="modules-section">
+                                <div class="modules-title"><i class="fas fa-cogs me-2"></i>Modules Involved</div>
+                                <div>
+                                    <span class="module-item">Accounts Payable</span>
+                                    <span class="module-item">Inventory</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4 project-item reveal" data-category="ERP">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="project-app">Milestone Lite ERP</span>
+                            <h3 class="project-name">Dealer SO to PO Conversion</h3>
+                            <p class="project-desc">
+                                Verified automated conversion of dealer sales orders to purchase orders with correct
+                                pricing, quantities, and vendor assignments.
+                            </p>
+                            <div>
+                                <span class="tech-badge" data-type="ERP">Sales Order</span>
+                                <span class="tech-badge" data-type="ERP">Purchase Order</span>
+                                <span class="tech-badge" data-type="ERP">Pricing Logic</span>
+                            </div>
+                            <div class="modules-section">
+                                <div class="modules-title"><i class="fas fa-cogs me-2"></i>Modules Involved</div>
+                                <div>
+                                    <span class="module-item">Accounts Receivable</span>
+                                    <span class="module-item">Accounts Payable</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insurance Projects -->
+                <div class="col-lg-6 mb-4 project-item reveal" data-category="Insurance">
+                    <div class="project-card insurance">
+                        <div class="card-body">
+                            <span class="project-app insurance">Easy Insurance</span>
+                            <h3 class="project-name">Policy Management System</h3>
+                            <p class="project-desc">
+                                Comprehensive testing of policy creation, renewal, and claims processing workflows in
+                                the Easy insurance agent application.
+                            </p>
+                            <div>
+                                <span class="tech-badge" data-type="Insurance">Policy Creation</span>
+                                <span class="tech-badge" data-type="Insurance">Renewals</span>
+                                <span class="tech-badge" data-type="Insurance">Claims Processing</span>
+                            </div>
+                            <div class="modules-section">
+                                <div class="modules-title"><i class="fas fa-puzzle-piece me-2"></i>Components Tested
+                                </div>
+                                <div>
+                                    <span class="module-item">Policy Engine</span>
+                                    <span class="module-item">Customer Portal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4 project-item reveal" data-category="ERP">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="project-app">Milestone Lite ERP</span>
+                            <h3 class="project-name">Shopify Excel Upload</h3>
+                            <p class="project-desc">
+                                Tested Excel import functionality that creates sales orders from Shopify data,
+                                validating product mapping, customer data, and order totals.
+                            </p>
+                            <div>
+                                <span class="tech-badge" data-type="ERP">Data Import</span>
+                                <span class="tech-badge" data-type="ERP">Excel Validation</span>
+                                <span class="tech-badge" data-type="ERP">Order Creation</span>
+                            </div>
+                            <div class="modules-section">
+                                <div class="modules-title"><i class="fas fa-cogs me-2"></i>Modules Involved</div>
+                                <div>
+                                    <span class="module-item">Accounts Receivable</span>
+                                    <span class="module-item">Inventory</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4 project-item reveal" data-category="ERP">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="project-app">Milestone Lite ERP</span>
+                            <h3 class="project-name">PickList to AutoDO</h3>
+                            <p class="project-desc">
+                                Verified automated delivery order generation from pick lists, ensuring correct item
+                                allocation, batch selection, and shipping documentation.
+                            </p>
+                            <div>
+                                <span class="tech-badge" data-type="ERP">Inventory</span>
+                                <span class="tech-badge" data-type="ERP">Shipping</span>
+                                <span class="tech-badge" data-type="ERP">Batch Tracking</span>
+                            </div>
+                            <div class="modules-section">
+                                <div class="modules-title"><i class="fas fa-cogs me-2"></i>Modules Involved</div>
+                                <div>
+                                    <span class="module-item">Inventory</span>
+                                    <span class="module-item">Shipping</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4 project-item reveal" data-category="ERP">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="project-app">Milestone Lite ERP</span>
+                            <h3 class="project-name">GRN Quality Check to Auto Purchase Return</h3>
+                            <p class="project-desc">
+                                Tested quality inspection workflow that automatically generates purchase returns for
+                                defective items, updating inventory and vendor accounts.
+                            </p>
+                            <div>
+                                <span class="tech-badge" data-type="ERP">Quality Control</span>
+                                <span class="tech-badge" data-type="ERP">Returns</span>
+                                <span class="tech-badge" data-type="ERP">Vendor Management</span>
+                            </div>
+                            <div class="modules-section">
+                                <div class="modules-title"><i class="fas fa-cogs me-2"></i>Modules Involved</div>
+                                <div>
+                                    <span class="module-item">Accounts Payable</span>
+                                    <span class="module-item">Inventory</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4 project-item reveal" data-category="ERP">
+                    <div class="project-card">
+                        <div class="card-body">
+                            <span class="project-app">Milestone Lite ERP</span>
+                            <h3 class="project-name">WayTrack API to JSON Integration</h3>
+                            <p class="project-desc">
+                                Validated API integration with WayTrack logistics system, ensuring accurate JSON data
+                                transformation and real-time shipment status updates.
+                            </p>
+                            <div>
+                                <span class="tech-badge" data-type="ERP">API Testing</span>
+                                <span class="tech-badge" data-type="ERP">JSON</span>
+                                <span class="tech-badge" data-type="ERP">Integration</span>
+                            </div>
+                            <div class="modules-section">
+                                <div class="modules-title"><i class="fas fa-cogs me-2"></i>Modules Involved</div>
+                                <div>
+                                    <span class="module-item">Shipping</span>
+                                    <span class="module-item">Integration</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4 project-item reveal" data-category="Insurance">
+                    <div class="project-card insurance">
+                        <div class="card-body">
+                            <span class="project-app insurance">Easy Insurance</span>
+                            <h3 class="project-name">Commission Calculation Engine</h3>
+                            <p class="project-desc">
+                                Verified complex commission calculations for insurance agents based on policy types,
+                                tenure, and performance tiers.
+                            </p>
+                            <div>
+                                <span class="tech-badge" data-type="Insurance">Calculations</span>
+                                <span class="tech-badge" data-type="Insurance">Commission Rules</span>
+                                <span class="tech-badge" data-type="Insurance">Financial Validation</span>
+                            </div>
+                            <div class="modules-section">
+                                <div class="modules-title"><i class="fas fa-puzzle-piece me-2"></i>Components Tested
+                                </div>
+                                <div>
+                                    <span class="module-item">Commission Module</span>
+                                    <span class="module-item">Financial Reports</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+        const counterText = document.getElementById('counter-text');
+
+        function updateCounter() {
+            const visibleProjects = document.querySelectorAll('.project-item:not(.hidden)').length;
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+
+            if (activeFilter === 'all') {
+                counterText.textContent = `Showing ${visibleProjects} projects`;
+            } else {
+                counterText.textContent = `Showing ${visibleProjects} ${activeFilter} projects`;
+            }
+        }
+
+        function filterProjects(category) {
+            const container = document.getElementById('projects-container');
+            container.classList.add('loading');
+
+            setTimeout(() => {
+                projectItems.forEach((item, index) => {
+                    const itemCategory = item.dataset.category;
+
+                    if (category === 'all' || itemCategory === category) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.style.display = 'block';
+                        }, index * 50);
+                    } else {
+                        item.classList.add('hidden');
+                        setTimeout(() => {
+                            if (item.classList.contains('hidden')) {
+                                item.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                });
+
+                setTimeout(() => {
+                    container.classList.remove('loading');
+                    updateCounter();
+                }, 300);
+            }, 150);
+        }
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Remove active class from all buttons
+                filterButtons.forEach(b => b.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Filter projects
+                const category = this.dataset.filter;
+                filterProjects(category);
+            });
+        });
+
+        // Initialize
+        filterProjects('all');
+    </script>
